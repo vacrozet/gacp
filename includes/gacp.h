@@ -36,10 +36,14 @@ typedef struct		s_gacp
 	int 			length_heure;
 	int 			length_minute;
 	int 			length_seconde;
+	char			*expand;
 }					t_gacp;
 
 int				ft_absolut(int nb);
 char			*ft_itoa(int n);
+int				get_next_line(const int fd, char **line);
+void			ft_expand_str(char *str, t_gacp *gacp);
+char	*ft_strnew(size_t size);
 
 
 

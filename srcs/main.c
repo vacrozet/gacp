@@ -113,21 +113,26 @@ char	*ft_date(t_gacp *gacp)
 	return date_bon_format;
 }
 
-int main(void)
+int 	main(int argc, char **argv)
 {
 	t_gacp		*gacp;
-	char	chaine[30];
+	// char	chaine[10000];
 	char	*date;
-
+	char	*debut;
+	(void)argc;
 
 	if (!(gacp = (t_gacp *)malloc(sizeof(t_gacp))))
 		exit(0);
-
+	debut ="git commit -m";
 	date = ft_date(gacp);
-	system("git status");
-	printf("Please Enter To be Continue");
-	scanf("%s", chaine);
-	printf("success");
+	// system("git status");
+	// printf("Please Enter To be Continue");
+	// fgets(chaine, sizeof chaine, stdin);
+	// system("git add -A");
+	ft_expand_str(argv[1], gacp);
+	printf("%s", gacp->expand);
+
+
 
 	return 0;
 }

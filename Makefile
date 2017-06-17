@@ -2,6 +2,7 @@ NAME = gacp
 CFLAGS = -Wall -Wextra -Werror
 SRC = ./srcs/main.c \
 	./srcs/ft_itoa.c \
+	./srcs/expand_str.c \
 	
 OBJ = $(SRC:.c=.o)
 
