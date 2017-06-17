@@ -116,13 +116,18 @@ char	*ft_date(t_gacp *gacp)
 int main(void)
 {
 	t_gacp		*gacp;
+	char	chaine[30];
+	char	*date;
+
 
 	if (!(gacp = (t_gacp *)malloc(sizeof(t_gacp))))
 		exit(0);
 
-	char	*date;
-
 	date = ft_date(gacp);
 	system("git status");
+	printf("Please Enter To be Continue");
+	scanf("%s", chaine);
+	printf("success");
+
 	return 0;
 }
