@@ -17,11 +17,15 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 typedef struct		s_gacp
 {
 	int				i;
 	int				j;
+	char			*finish;
+	char			*first;
+	char			*date;
 	char			*jour;
 	char			*mois;
 	char			*annee;
@@ -36,6 +40,7 @@ typedef struct		s_gacp
 	int 			length_heure;
 	int 			length_minute;
 	int 			length_seconde;
+	int				length_date;
 	char			*expand;
 }					t_gacp;
 
@@ -43,8 +48,9 @@ int				ft_absolut(int nb);
 char			*ft_itoa(int n);
 int				get_next_line(const int fd, char **line);
 void			ft_expand_str(char *str, t_gacp *gacp);
-char	*ft_strnew(size_t size);
-
-
+char			*ft_strnew(size_t size);
+int				ft_strlen(char *str);
+void			ft_strjoin_commit(t_gacp *gacp);
+void			ft_putstr(char *str);
 
 #endif

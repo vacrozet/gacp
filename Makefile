@@ -3,7 +3,9 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = ./srcs/main.c \
 	./srcs/ft_itoa.c \
 	./srcs/expand_str.c \
-	
+	./srcs/ft_strjoin_commit.c \
+	./srcs/print.c \
+
 OBJ = $(SRC:.c=.o)
 
 .PHONY : clean fclean re

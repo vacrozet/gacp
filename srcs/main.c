@@ -41,6 +41,7 @@ int		ft_strlen(char *str)
 
 void	ft_init(t_gacp	*gacp)
 {
+	gacp->first = "git commit -m";
 	gacp->length_jour = ft_strlen(gacp->jour);
 	gacp->length_mois = ft_strlen(gacp->mois);
 	gacp->length_annee = ft_strlen(gacp->annee);
@@ -94,11 +95,10 @@ char	*ft_strjoin(t_gacp	*gacp)
 	return (str);
 }
 
-char	*ft_date(t_gacp *gacp)
+void	ft_date(t_gacp *gacp)
 {
 	time_t temps;
 	struct tm date;
-	char *date_bon_format;
 
 	time(&temps);
 	date=*gmtime(&temps);
@@ -109,30 +109,34 @@ char	*ft_date(t_gacp *gacp)
 	gacp->heure = ft_itoa(date.tm_hour + 2);
 	gacp->minute = ft_itoa(date.tm_min);
 	gacp->seconde = ft_itoa(date.tm_sec);
-	date_bon_format = ft_strjoin(gacp);
-	return date_bon_format;
+	gacp->date = ft_strjoin(gacp);
+	gacp->length_date = ft_strlen(gacp->date);
 }
 
-int 	main(int argc, char **argv)
+int 	main(void)
 {
 	t_gacp		*gacp;
-	// char	chaine[10000];
-	char	*date;
-	char	*debut;
-	(void)argc;
+	char		chaine[1000000];
+	char		fake[1000000];
+	char		fake_1[1000000];
+	char		*exemple;
 
+	exemple = "git status";
 	if (!(gacp = (t_gacp *)malloc(sizeof(t_gacp))))
-		exit(0);
-	debut ="git commit -m";
-	date = ft_date(gacp);
-	// system("git status");
-	// printf("Please Enter To be Continue");
-	// fgets(chaine, sizeof chaine, stdin);
-	// system("git add -A");
-	ft_expand_str(argv[1], gacp);
-	printf("%s", gacp->expand);
-
-
-
+		return (0);
+	ft_date(gacp);
+	system("git status");
+	ft_putstr("Please Press ENTER To Be Continue !");
+	fgets(fake, sizeof fake, stdin);
+	system("git add -A");
+	ft_putstr("Commit : ");
+	fgets(chaine, sizeof chaine, stdin);
+	ft_expand_str(chaine, gacp);
+	ft_strjoin_commit(gacp);
+	system(gacp->finish);
+	ft_putstr("Please Press ENTER For Push !");
+	fgets(fake_1, sizeof fake_1, stdin);
+	system("git push");
+	ft_putstr("ENJOY Your Job is Push");
 	return 0;
 }
