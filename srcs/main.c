@@ -26,13 +26,6 @@ void	ft_date(t_gacp *gacp)
 	gacp->time[3] = ft_itoa(date.tm_hour + 2);
 	gacp->time[4] = ft_itoa(date.tm_min);
 	gacp->time[5] = ft_itoa(date.tm_sec);
-
-	// gacp->jour = ft_itoa(date.tm_mday);
-	// gacp->mois = ft_itoa(date.tm_mon + 1);
-	// gacp->annee = ft_itoa(date.tm_year - 100);
-	// gacp->heure = ft_itoa(date.tm_hour + 2);
-	// gacp->minute = ft_itoa(date.tm_min);
-	// gacp->seconde = ft_itoa(date.tm_sec);
 	gacp->date = ft_strjoin(gacp);
 	gacp->length_date = ft_strlen(gacp->date);
 }
@@ -59,7 +52,6 @@ int 	main(void)
 	if (!(gacp = (t_gacp *)malloc(sizeof(t_gacp))))
 		return (0);
 	ft_date(gacp);
-	// printf("%s\n", gacp->date);
 	system("git status");
 	ft_putstr("Please Press ENTER To Be Continue !");
 	fgets(fake, sizeof fake, stdin);
@@ -74,6 +66,5 @@ int 	main(void)
 	system("git push");
 	ft_putstr("ENJOY Your Job is Push\n");
 	free_leaks(gacp);
-	while (1);
 	return 0;
 }
