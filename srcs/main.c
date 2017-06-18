@@ -138,5 +138,9 @@ int 	main(void)
 	fgets(fake_1, sizeof fake_1, stdin);
 	system("git push");
 	ft_putstr("ENJOY Your Job is Push");
+	free(gacp->expand);
+	free(gacp->finish);
+	free(gacp);
+	while(1);
 	return 0;
 }
