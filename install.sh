@@ -3,6 +3,6 @@ git clone https://github.com/vacrozet/gacp.git
 cd gacp
 sleep 1
 make
-cp gacp pp
-mv pp /usr/locale/bin/
+mv gacp pp
+mv ~/Documents/gacp/pp /usr/local/bin/
 make fclean
