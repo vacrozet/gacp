@@ -140,6 +140,7 @@ int 	main(void)
 	ft_putstr("ENJOY Your Job is Push");
 	free(gacp->expand);
 	free(gacp->finish);
+	free(gacp->jour);
 	free(gacp);
 	while(1);
 	return 0;
