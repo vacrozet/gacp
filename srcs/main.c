@@ -42,7 +42,7 @@ void	free_leaks(t_gacp *gacp)
 	free(gacp->expand);
 	free(gacp->finish);
 	free(gacp);
-	
+
 
 }
 
@@ -68,7 +68,7 @@ int 	main(void)
 	ft_putstr("Please Press ENTER For Push !");
 	fgets(fake_1, sizeof fake_1, stdin);
 	system("git push");
-	ft_putstr("ENJOY Your Job is Push");
+	ft_putstr("ENJOY Your Job is Push\n");
 	free_leaks(gacp);
 	return 0;
 }
