@@ -4,5 +4,5 @@ cd gacp
 sleep 1
 make
 cp gacp pp
-mv pp  /usr/locale/bin/
+mv pp /usr/locale/bin/
 make fclean
