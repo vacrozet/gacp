@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vacrozet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/18 16:40:30 by vacrozet          #+#    #+#             */
+/*   Updated: 2017/06/18 16:42:08 by vacrozet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/gacp.h"
 
-static void		ft_init(t_gacp	*gacp)
+static void		ft_init(t_gacp *gacp)
 {
-	int 	k;
+	int	k;
 
 	k = -1;
 	gacp->length = 0;
@@ -17,13 +29,13 @@ static void		ft_init(t_gacp	*gacp)
 	gacp->j = 0;
 }
 
-char			*ft_strjoin(t_gacp	*gacp)
+char			*ft_strjoin(t_gacp *gacp)
 {
-	int 	k;
+	int	k;
 
 	k = 0;
 	ft_init(gacp);
-	gacp->str = ft_strnew(sizeof(char) * ( gacp->length));
+	gacp->str = ft_strnew(sizeof(char) * (gacp->length));
 	if (gacp->str == NULL)
 		exit(0);
 	while (k < 6)

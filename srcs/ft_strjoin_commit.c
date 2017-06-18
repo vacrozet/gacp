@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin_commit.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vacrozet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/18 16:42:11 by vacrozet          #+#    #+#             */
+/*   Updated: 2017/06/18 16:43:36 by vacrozet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/gacp.h"
 
 static void		option_1(t_gacp *gacp)
 {
-	int 	i;
-	int 	j;
+	int	i;
+	int	j;
 
 	i = 0;
-	j = 0;	
+	j = 0;
 	gacp->finish = ft_strnew(sizeof(char) * (gacp->length_date + 17));
 	while (i < ft_strlen(gacp->first))
 		gacp->finish[i++] = gacp->first[j++];
@@ -21,8 +33,8 @@ static void		option_1(t_gacp *gacp)
 
 static void		option_2(t_gacp *gacp)
 {
-	int 	i;
-	int 	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -32,7 +44,7 @@ static void		option_2(t_gacp *gacp)
 	gacp->finish[i++] = ' ';
 	gacp->finish[i++] = '"';
 	j = 0;
-	while(j < ft_strlen(gacp->expand) - 1)
+	while (j < ft_strlen(gacp->expand) - 1)
 		gacp->finish[i++] = gacp->expand[j++];
 	gacp->finish[i++] = ' ';
 	j = 0;
@@ -42,7 +54,7 @@ static void		option_2(t_gacp *gacp)
 	gacp->finish[i++] = '\0';
 }
 
-void	ft_strjoin_commit(t_gacp *gacp)
+void			ft_strjoin_commit(t_gacp *gacp)
 {
 	if (ft_strlen(gacp->expand) == 1)
 		option_1(gacp);

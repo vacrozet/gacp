@@ -1,4 +1,4 @@
-cd ~/documents/
+cd ~/Documents/
 git clone https://github.com/vacrozet/gacp.git
 cd gacp
 sleep 1
