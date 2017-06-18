@@ -4,5 +4,4 @@ cd gacp
 sleep 1
 make
 make clean
-alias pp='~/Documents/gacp/gacp'
-make fclean
+echo alias pp='~/Documents/gacp/gacp' >> ~/.zshrc
