@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef GACP_H
 # define GACP_H
 
@@ -47,12 +46,12 @@ typedef struct		s_gacp
 
 int				ft_absolut(int nb);
 char			*ft_itoa(int n);
-int				get_next_line(const int fd, char **line);
 void			ft_expand_str(char *str, t_gacp *gacp);
 char			*ft_strnew(size_t size);
 int				ft_strlen(char *str);
 void			ft_strjoin_commit(t_gacp *gacp);
 void			ft_putstr(char *str);
 int				ft_strlen(char *str);
+char			*ft_strjoin(t_gacp	*gacp);
 
 #endif
