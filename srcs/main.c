@@ -29,16 +29,6 @@ char	*ft_strnew(size_t size)
 	return (tmp);
 }
 
-int		ft_strlen(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return(i);
-}
-
 void	ft_init(t_gacp	*gacp)
 {
 	gacp->first = "git commit -m";
@@ -59,40 +49,38 @@ void	ft_init(t_gacp	*gacp)
 
 	gacp->i = 0;
 	gacp->j = 0;
+	gacp->str = ft_strnew(sizeof(char) * ( gacp->length));
+	if (gacp->str == NULL)
+		exit(0);
 }
 
 char	*ft_strjoin(t_gacp	*gacp)
 {
-	char	*str;
-
 	ft_init(gacp);
-	str = ft_strnew(sizeof(char) * ( gacp->length));
-	if (str == NULL)
-		exit(0);
 	while (gacp->i < gacp->length_jour)
-		str[gacp->j++] = gacp->jour[gacp->i++];
-	str[gacp->j++] = '/';
+		gacp->str[gacp->j++] = gacp->jour[gacp->i++];
+	gacp->str[gacp->j++] = '/';
 	gacp->i = 0;
 	while (gacp->i < gacp->length_mois)
-		str[gacp->j++] = gacp->mois[gacp->i++];
-	str[gacp->j++] = '/';
+		gacp->str[gacp->j++] = gacp->mois[gacp->i++];
+	gacp->str[gacp->j++] = '/';
 	gacp->i = 0;
 	while (gacp->i < gacp->length_annee)
-		str[gacp->j++] = gacp->annee[gacp->i++];
-	str[gacp->j++] = '-';
+		gacp->str[gacp->j++] = gacp->annee[gacp->i++];
+	gacp->str[gacp->j++] = '-';
 	gacp->i = 0;
 	while (gacp->i < gacp->length_heure)
-		str[gacp->j++] = gacp->heure[gacp->i++];
-	str[gacp->j++] = ':';
+		gacp->str[gacp->j++] = gacp->heure[gacp->i++];
+	gacp->str[gacp->j++] = ':';
 	gacp->i = 0;
 	while (gacp->i < gacp->length_minute)
-		str[gacp->j++] = gacp->minute[gacp->i++];
-	str[gacp->j++] = ':';
+		gacp->str[gacp->j++] = gacp->minute[gacp->i++];
+	gacp->str[gacp->j++] = ':';
 	gacp->i = 0;	
 	while (gacp->i < gacp->length_seconde)
-		str[gacp->j++] = gacp->seconde[gacp->i++];
-	str[gacp->j++] = '\0';	
-	return (str);
+		gacp->str[gacp->j++] = gacp->seconde[gacp->i++];
+	gacp->str[gacp->j++] = '\0';	
+	return (gacp->str);
 }
 
 void	ft_date(t_gacp *gacp)
@@ -133,9 +121,7 @@ int 	main(void)
 	char		chaine[1000000];
 	char		fake[1000000];
 	char		fake_1[1000000];
-	char		*exemple;
 
-	exemple = "git status";
 	if (!(gacp = (t_gacp *)malloc(sizeof(t_gacp))))
 		return (0);
 	ft_date(gacp);
@@ -153,6 +139,5 @@ int 	main(void)
 	system("git push");
 	ft_putstr("ENJOY Your Job is Push");
 	free_leaks(gacp);
-	while(1);
 	return 0;
 }

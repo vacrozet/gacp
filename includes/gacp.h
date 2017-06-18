@@ -23,6 +23,7 @@ typedef struct		s_gacp
 {
 	int				i;
 	int				j;
+	char			*str;
 	char			*finish;
 	char			*first;
 	char			*date;
@@ -52,5 +53,6 @@ char			*ft_strnew(size_t size);
 int				ft_strlen(char *str);
 void			ft_strjoin_commit(t_gacp *gacp);
 void			ft_putstr(char *str);
+int				ft_strlen(char *str);
 
 #endif

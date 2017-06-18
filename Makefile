@@ -5,6 +5,7 @@ SRC = ./srcs/main.c \
 	./srcs/expand_str.c \
 	./srcs/ft_strjoin_commit.c \
 	./srcs/print.c \
+	./srcs/utils.c \
 
 OBJ = $(SRC:.c=.o)
 
