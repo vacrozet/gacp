@@ -22,10 +22,15 @@ typedef struct		s_gacp
 {
 	int				i;
 	int				j;
+
 	char			*str;
 	char			*finish;
 	char			*first;
 	char			*date;
+
+
+	char			*time[6];
+	char			length_time[6];
 	char			*jour;
 	char			*mois;
 	char			*annee;
