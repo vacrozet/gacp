@@ -38,13 +38,11 @@ void	ft_date(t_gacp *gacp)
 }
 void	free_leaks(t_gacp *gacp)
 {
+	int		k;
 
-	free(gacp->jour);
-	free(gacp->mois);
-	free(gacp->annee);
-	free(gacp->heure);
-	free(gacp->minute);
-	free(gacp->seconde);
+	k = 0;
+	while (k < 6)
+		free(gacp->time[k++]);
 	free(gacp->date);
 	free(gacp->expand);
 	free(gacp->finish);
@@ -76,5 +74,6 @@ int 	main(void)
 	system("git push");
 	ft_putstr("ENJOY Your Job is Push\n");
 	free_leaks(gacp);
+	while (1);
 	return 0;
 }
