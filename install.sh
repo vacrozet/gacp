@@ -1,6 +1,7 @@
-cd ~/Documents/
+cd ~/documents/
 git clone https://github.com/vacrozet/gacp.git
 cd gacp
 make
 make clean
-alias pp='~/Documents/gacp/gacp'
+mv gacp pp
+mv pp  /usr/locale/bin/
