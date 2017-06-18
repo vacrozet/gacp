@@ -112,6 +112,20 @@ void	ft_date(t_gacp *gacp)
 	gacp->date = ft_strjoin(gacp);
 	gacp->length_date = ft_strlen(gacp->date);
 }
+void	free_leaks(t_gacp *gacp)
+{
+
+	free(gacp->jour);
+	free(gacp->mois);
+	free(gacp->annee);
+	free(gacp->heure);
+	free(gacp->minute);
+	free(gacp->seconde);
+	free(gacp->date);
+	free(gacp->expand);
+	free(gacp->finish);
+	free(gacp);	
+}
 
 int 	main(void)
 {
@@ -138,10 +152,7 @@ int 	main(void)
 	fgets(fake_1, sizeof fake_1, stdin);
 	system("git push");
 	ft_putstr("ENJOY Your Job is Push");
-	free(gacp->expand);
-	free(gacp->finish);
-	free(gacp->jour);
-	free(gacp);
+	free_leaks(gacp);
 	while(1);
 	return 0;
 }
