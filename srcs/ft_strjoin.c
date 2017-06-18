@@ -4,19 +4,19 @@ static void		ft_init(t_gacp	*gacp)
 {
 	int 	k;
 
-	k = 0;
+	k = -1;
 	gacp->length = 0;
 	gacp->first = "git commit -m";
-	while (k < 6)
+	while (++k < 6)
 	{
 		gacp->length_time[k] = ft_strlen(gacp->time[k]);
-		k++;
+		// k++;
 	}
-	k = 0;
-	while (k < 6)
+	k = -1;
+	while (++k < 6)
 	{
 		gacp->length += gacp->length_time[k];
-		k++;
+		// k++;
 	}
 
 	// gacp->length_time[1] = ft_strlen(gacp->time[1]);
