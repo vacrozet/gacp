@@ -41,7 +41,9 @@ void	free_leaks(t_gacp *gacp)
 	free(gacp->date);
 	free(gacp->expand);
 	free(gacp->finish);
-	free(gacp);	
+	free(gacp);
+	
+
 }
 
 int 	main(void)
