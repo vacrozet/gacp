@@ -1,4 +1,4 @@
-# gacp
+# GACP
 Git Add Commit Push
 
 Install.sh 
