@@ -8,33 +8,13 @@ static void		ft_init(t_gacp	*gacp)
 	gacp->length = 0;
 	gacp->first = "git commit -m";
 	while (++k < 6)
-	{
 		gacp->length_time[k] = ft_strlen(gacp->time[k]);
-		// k++;
-	}
 	k = -1;
 	while (++k < 6)
-	{
 		gacp->length += gacp->length_time[k];
-		// k++;
-	}
-
-	// gacp->length_time[1] = ft_strlen(gacp->time[1]);
-	// gacp->length_time[2] = ft_strlen(gacp->time[2]);
-	// gacp->length_time[3] = ft_strlen(gacp->time[3]);
-	// gacp->length_time[4] = ft_strlen(gacp->time[4]);
-	// gacp->length_time[5] = ft_strlen(gacp->time[5]);
-	// gacp->length += gacp->length_time[1];
-	// gacp->length += gacp->length_time[2];
-	// gacp->length += gacp->length_time[3];
-	// gacp->length += gacp->length_time[4];
-	// gacp->length += gacp->length_time[5];
 	gacp->length += 6;
 	gacp->i = 0;
 	gacp->j = 0;
-	gacp->str = ft_strnew(sizeof(char) * ( gacp->length));
-	if (gacp->str == NULL)
-		exit(0);
 }
 
 char			*ft_strjoin(t_gacp	*gacp)
@@ -43,6 +23,9 @@ char			*ft_strjoin(t_gacp	*gacp)
 
 	k = 0;
 	ft_init(gacp);
+	gacp->str = ft_strnew(sizeof(char) * ( gacp->length));
+	if (gacp->str == NULL)
+		exit(0);
 	while (k < 6)
 	{
 		while (gacp->i < gacp->length_time[k])
