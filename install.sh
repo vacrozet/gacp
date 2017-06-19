@@ -1,7 +1,7 @@
-cd ~/Documents/
-git clone https://github.com/vacrozet/gacp.git
-cd gacp
+git clone https://github.com/vacrozet/gacp.git ~/.gacp
+cd ~/.gacp
 sleep 1
 make
 make clean
-echo alias pp='~/Documents/gacp/gacp' >> ~/.zshrc
+echo alias gacp='~/.gacp/gacp' >> ~/.zshrc
+source ~/.zshrc
